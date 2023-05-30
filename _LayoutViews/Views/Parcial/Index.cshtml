@@ -1,3 +1,32 @@
-﻿<h1>Home</h1>
+﻿
+<h1>Home</h1>
+<!Doctype Html>
+<html>
+    <head>
+        <title>Index</title>
+        <link href="~/StyleSheet.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <button  id="btn-click" type="button">Click Me to Load</button>
+    <div class="box display">
 
-<partial name = "_ListParcialView"></partial>
+       
+        
+        </div>
+    </body>
+    <script>
+        document.querySelector("#btn-click").addEventListener("click", async function(){
+        var response = await fetch("/ParcialResult");
+        var Languages = await response.text();
+            document.querySelector(".display").innerHTML = Languages;
+        });
+    </script>
+</html>
+
+
+
+
+
+
+
+

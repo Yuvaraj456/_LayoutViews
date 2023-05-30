@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using _LayoutViews.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace _LayoutViews.Controllers
 {
@@ -14,6 +15,17 @@ namespace _LayoutViews.Controllers
         public IActionResult About()
         {
             return View();
+        }
+        [Route("/ParcialResult")]
+        public IActionResult ParcialResult()
+        {
+            ListModel listModel = new ListModel()
+            {
+                 ListName = "Programming Languages",
+                ListItems = new List<string>(){ "Java", "C#", "Python", "Ruby" }
+            };
+
+            return  PartialView("_ListParcialView",listModel);
         }
     }
 }
